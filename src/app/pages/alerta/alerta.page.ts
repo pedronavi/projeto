@@ -18,7 +18,18 @@ export class AlertaPage implements OnInit {
       header: 'Alert Mobile',
       subHeader: 'Exemplo',
       message: 'Exemplo de Alert!!!',
-      buttons: ['OK', 'Cancelar']
+      buttons: [
+                  {text: 'OK',
+                   handler: () => {
+                     console.log('O botão OK foi pressionado!');
+                   }
+                  }, 
+                  {text: 'Cancelar',
+                   handler: () => {
+                    console.log('O botão cancelar foi pressionado!');
+                   }
+                  }
+               ]
     })
 
     alert.present();
