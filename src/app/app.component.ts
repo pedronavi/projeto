@@ -14,6 +14,7 @@ export class AppComponent {
     { title: 'Card', url: 'card', icon: 'construct'},
     { title: 'Checkbox', url: 'checkbox', icon: 'construct'},
     { title: 'Content', url: 'content', icon: 'construct'},
+    { title: 'Fotos', url: 'fotos', icon: 'camera'},
   ];
   
   constructor() {}

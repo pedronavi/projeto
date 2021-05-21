@@ -46,7 +46,11 @@ const routes: Routes = [
   {
     path: 'content',
     loadChildren: () => import('./pages/content/content.module').then( m => m.ContentPageModule)
+  },  {
+    path: 'fotos',
+    loadChildren: () => import('./pages/fotos/fotos.module').then( m => m.FotosPageModule)
   }
+
 ];
 
 @NgModule({
