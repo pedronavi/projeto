@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,28 +13,29 @@
   <ion-list>
     <ion-card>
     <ion-item-sliding *ngFor='let foto of fotos'>
-      <ion-item >
+   
+      <ion-item  [href]="foto.url">
         <ion-thumbnail slot="start">
-          <ion-img [src]=foto.url></ion-img>
+           <ion-img [src]=foto.url></ion-img>
         </ion-thumbnail>
           
           <ion-card-content>
-          <ion-label> Nome: {{foto.nome}}  </ion-label>
-          <ion-label> Descrição:  {{foto.descricao}}  </ion-label>
-          </ion-card-content>
-       
+          <ion-label>{{foto.nome}}</ion-label>
+          <ion-label><strong>Descrição:</strong> {{foto.descricao}}.  </ion-label>
+          </ion-card-content>    
         
       </ion-item>
+    
 
       
       <ion-item-options side="start">
         
-        <ion-item-option color="success"><ion-icon name="share"></ion-icon>Compartilhar</ion-item-option>
+      <ion-item-option color="success"><ion-icon name="share"></ion-icon>Compartilhar</ion-item-option>
       </ion-item-options>
 
       <ion-item-options side="end">
         
-        <ion-item-option (click)="deletar(foto.id)" color="danger"><ion-icon name="trash"></ion-icon>  Apagar </ion-item-option>
+        <ion-item-option (click)="deletarFoto(foto.id)" color="danger"><ion-icon name="trash"></ion-icon>  Apagar </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-card>

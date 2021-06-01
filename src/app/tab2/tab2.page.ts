@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FotosdbService } from '../services/fotosdb.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -9,27 +10,31 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit{
-
-  cadastro: FormGroup;
-  constructor(
-    private fb: FormBuilder,
+ 
+  
+  constructor(   
     private db: FotosdbService,
+    private loading: LoadingController,
   ) {}
 
   ngOnInit(): void { 
-    this.validaForm();
+   this.loadMessage()
   }
 
-  validaForm(){
-    this.cadastro = this.fb.group({
-      nome:['',[Validators.required,Validators.minLength(3)]],
-      url:['',[Validators.required,Validators.minLength(3),Validators.maxLength(255)]],
-      descricao:[]
+  async loadMessage(){
+    let load = await this.loading.create({
+      message: 'Aguarde...',
+      duration: 2000
     });
+  
+    await load.present()
   }
 
-  salvar(){
-    // this.db.cadFoto(this.cadastro.value);
+  
+
+  salvar(form){
+    console.log(form.value)
+    this.db.cadFoto(form.value);
   }
 
  

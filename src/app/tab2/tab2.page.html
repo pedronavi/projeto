@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="success">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,21 +8,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<form  [formGroup]="cadastro" (submit)="salvar()">
+<form #form="ngForm" (submit)="salvar(form)">
   <ion-card color="primary" >
   <ion-item >
     <ion-label>Nome: </ion-label>
-    <ion-input type="text" placeholder="Insira o nome da foto" formControlName="nome" > </ion-input>  
+    <ion-input type="text" placeholder="Insira o nome da foto" name="nome" ngModel > </ion-input>  
   </ion-item>
 
   <ion-item>
     <ion-label>Url:</ion-label>
-    <ion-input type="text" placeholder="Insira a URL da foto"  formControlName="url" ></ion-input> 
+    <ion-input type="text" placeholder="Insira a URL da foto" name="url" ngModel ></ion-input> 
   </ion-item>
 
   <ion-item>
     <ion-label>Descrição: </ion-label>
-    <ion-input type="text" placeholder="Insira a descrição da foto "  formControlName="descricao" ></ion-input> 
+    <ion-input type="text" placeholder="Insira a descrição da foto "   name="descricao" ngModel></ion-input> 
   </ion-item>
   
   </ion-card>

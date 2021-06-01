@@ -30,7 +30,15 @@ export class FotosdbService {
          })
        })
      )
-   }  
+   }
+
+   getFoto(id){
+     return this.colecoesFotos.doc(id).valueChanges()
+   }
+
+   upFoto(id, foto){
+    return this.colecoesFotos.doc(id).update(foto)
+   }
 
    deletar(id:string){
     return this.colecoesFotos.doc(id).delete();
